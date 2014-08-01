@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Puzzlebox.Caching</id>
+    <version>1.0</version>
+    <title>ASP.NET caching wrapper</title>
+    <authors>Kevin Blake</authors>
+    <owners>Kevin Blake</owners>
+    <licenseUrl>https://github.com/kevinblake/CacheWrapper/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/kevinblake/CacheWrapper</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple cache wrapper for asp.net projects.  Supports Filesystem and InMemory out of the box</description>
+    <tags>asp.net aspnet versioning assembly version mvc</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Puzzlebox.Caching\bin\Release\Puzzlebox.Caching.dll" target="lib\net40" />
+  </files>
+</package>
+
