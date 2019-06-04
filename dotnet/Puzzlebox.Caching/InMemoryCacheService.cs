@@ -18,7 +18,7 @@ namespace Puzzlebox.Caching
             TimeSpan slidingExpiration, 
             Func<T> getItemCallback) where T : class
         {
-            var item = HttpRuntime.Cache.Get(cacheId) as T;
+            var item = Get<T>(cacheId);
             if (item == null)
             {
                 item = getItemCallback();
@@ -28,9 +28,24 @@ namespace Puzzlebox.Caching
             return item;
         }
 
+        public T Get<T>(
+            string cacheId) where T : class
+        {
+            var item = HttpRuntime.Cache.Get(cacheId) as T;
+
+            return item;
+        }
+
         public void Write<T>(string cacheId, T item) where T : class
         {
             HttpRuntime.Cache.Insert(cacheId, item);
         }
+
+        public void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration, TimeSpan slidingExpiration) where T : class
+        {
+            HttpRuntime.Cache.Insert(cacheId, item, cacheDependency, absoluteExpiration, slidingExpiration);
+        }
+
+
     }
 }

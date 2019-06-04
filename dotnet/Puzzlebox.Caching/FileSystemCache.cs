@@ -43,5 +43,20 @@ namespace Puzzlebox.Caching
 
             SerializationHelper.SaveToDisk(path, item);
         }
+
+        public T Get<T>(string cacheId) where T : class
+        {
+            var path = string.Format("{0}{1}.xml", this.SaveDirectory, cacheId);
+
+            return SerializationHelper.LoadFromDisk<T>(path);
+        }
+
+        public void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration,
+            TimeSpan slidingExpiration) where T : class
+        {
+            var path = string.Format("{0}{1}.xml", this.SaveDirectory, cacheId);
+
+            SerializationHelper.SaveToDisk(path, item);
+        }
     }
 }

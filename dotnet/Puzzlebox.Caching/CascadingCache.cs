@@ -60,5 +60,29 @@ namespace Puzzlebox.Caching
                 cache.Write(cacheId, item);
             }
         }
+
+        public T Get<T>(string cacheId) where T : class
+        {
+            foreach (var cache in this.cacheList)
+            {
+                var i = cache.Get<T>(cacheId);
+
+                if (i != null)
+                {
+                    return i;
+                }
+            }
+
+            return null;
+        }
+
+        public void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration,
+            TimeSpan slidingExpiration) where T : class
+        {
+            foreach (var cache in this.cacheList)
+            {
+                cache.Write(cacheId, item, cacheDependency, absoluteExpiration, slidingExpiration);
+            }
+        }
     }
 }

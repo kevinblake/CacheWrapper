@@ -15,5 +15,10 @@ namespace Puzzlebox.Caching
             Func<T> getItemCallback) where T : class;
 
         void Write<T>(string cacheId, T item) where T : class;
+
+        T Get<T>(
+            string cacheId) where T : class;
+
+        void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration, TimeSpan slidingExpiration) where T : class;
     }
 }
