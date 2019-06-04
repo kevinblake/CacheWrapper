@@ -12,7 +12,7 @@
     <description>Simple cache wrapper for asp.net projects.  Supports Filesystem and InMemory out of the box</description>
     <tags>asp.net aspnet versioning assembly version mvc</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" />
+      <dependency id="Newtonsoft.Json" version="8.0.1" />
     </dependencies>
   </metadata>
   <files>
