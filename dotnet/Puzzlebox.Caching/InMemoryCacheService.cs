@@ -36,6 +36,11 @@ namespace Puzzlebox.Caching
             return item;
         }
 
+        public void Remove(string cacheId)
+        {
+            HttpRuntime.Cache.Remove(cacheId);
+        }
+
         public void Write<T>(string cacheId, T item) where T : class
         {
             HttpRuntime.Cache.Insert(cacheId, item);

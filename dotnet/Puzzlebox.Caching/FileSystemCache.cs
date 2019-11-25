@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using System.Web.Caching;
 
@@ -49,6 +50,13 @@ namespace Puzzlebox.Caching
             var path = string.Format("{0}{1}.xml", this.SaveDirectory, cacheId);
 
             return SerializationHelper.LoadFromDisk<T>(path);
+        }
+
+        public void Remove(string cacheId)
+        {
+            var path = string.Format("{0}{1}.xml", this.SaveDirectory, cacheId);
+
+            File.Delete(path);
         }
 
         public void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration,

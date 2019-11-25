@@ -19,6 +19,8 @@ namespace Puzzlebox.Caching
         T Get<T>(
             string cacheId) where T : class;
 
+        void Remove(string cacheId);
+
         void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration, TimeSpan slidingExpiration) where T : class;
     }
 }

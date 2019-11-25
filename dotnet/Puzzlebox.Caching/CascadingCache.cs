@@ -76,6 +76,14 @@ namespace Puzzlebox.Caching
             return null;
         }
 
+        public void Remove(string cacheId)
+        {
+            foreach (var cache in this.cacheList)
+            {
+                cache.Remove(cacheId);
+            }
+        }
+
         public void Write<T>(string cacheId, T item, CacheDependency cacheDependency, DateTime absoluteExpiration,
             TimeSpan slidingExpiration) where T : class
         {
